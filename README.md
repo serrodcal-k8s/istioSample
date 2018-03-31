@@ -11,7 +11,7 @@ This project contains all about proof of concept for Istio.
 
 ### Installing
 
-1. After install Minikube, run:
+After install Minikube, run:
 
 ```bash
 minikube start \
@@ -21,25 +21,25 @@ minikube start \
 	--kubernetes-version=v1.9.0
 ```
 
-2. Go to the [Istio release](https://github.com/istio/istio/releases) page to download the installation file corresponding to your OS. If you are using a MacOS or Linux system, you can also run the following command to download and extract the latest release automatically:
+Go to the [Istio release](https://github.com/istio/istio/releases) page to download the installation file corresponding to your OS. If you are using a MacOS or Linux system, you can also run the following command to download and extract the latest release automatically:
 
 ```bash
 curl -L https://git.io/getLatestIstio | sh -
 ```
 
-3. Change directory to istio package. For example, if the package is istio-0.6
+Change directory to istio package. For example, if the package is istio-0.6
 
 ```bash
 cd istio-0.6
 ```
 
-4. Add the `istioctl` client to your PATH. For example, run the following command on a MacOS or Linux system:
+Add the `istioctl` client to your PATH. For example, run the following command on a MacOS or Linux system:
 
 ```bash
 export PATH=$PWD/bin:$PATH
 ```
 
-5. Install Istio’s core components. Choose one of the two mutually exclusive options below or alternately install with the [Helm Chart](https://istio.io/docs/setup/kubernetes/helm.html), first install istio without enabling Mutual SSL authentication **OR** second install istio and enable Mutual SSL authentication:
+Install Istio’s core components. Choose one of the two mutually exclusive options below or alternately install with the [Helm Chart](https://istio.io/docs/setup/kubernetes/helm.html), first install istio without enabling Mutual SSL authentication **OR** second install istio and enable Mutual SSL authentication:
 
 ```bash
 kubectl apply -f install/kubernetes/istio.yaml
@@ -53,7 +53,7 @@ kubectl apply -f install/kubernetes/istio-auth.yaml
 
 Verifying the installation:
 
-1. Ensure the following Kubernetes services are deployed: `istio-pilot`, `istio-mixer`, `istio-ingress`:
+Ensure the following Kubernetes services are deployed: `istio-pilot`, `istio-mixer`, `istio-ingress`:
 
 ```bash
 kubectl get svc -n istio-system
@@ -65,7 +65,7 @@ istio-mixer     10.83.244.253   <none>            9091/TCP,9094/TCP,42422/TCP   
 
 ```
 
-2. Ensure the corresponding Kubernetes pods are deployed and all containers are up and running: `istio-pilot-*`, `istio-mixer-*`, `istio-ingress-*`, `istio-ca-*`, and, optionally, `istio-sidecar-injector-*`:
+Ensure the corresponding Kubernetes pods are deployed and all containers are up and running: `istio-pilot-*`, `istio-mixer-*`, `istio-ingress-*`, `istio-ca-*`, and, optionally, `istio-sidecar-injector-*`:
 
 ```bash
 kubectl get pods -n istio-system
