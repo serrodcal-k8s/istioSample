@@ -156,6 +156,21 @@ You can also point your browser to `http://$GATEWAY_URL/productpage` to view the
 
 You can now use this sample to experiment with Istio’s features for traffic routing, fault injection, rate limitting, etc.. To proceed, refer to one or more of the [Istio Guides](https://istio.io/docs/guides), depending on your interest. [Intelligent Routing](https://istio.io/docs/guides/intelligent-routing.html) is a good place to start for beginners.
 
+### Determining the ingress IP and Port
+
+```bash 
+export GATEWAY_URL=$(kubectl get po -l istio=ingress -n istio-system -o 'jsonpath={.items[0].status.hostIP}'):$(kubectl get svc istio-ingress -n istio-system -o 'jsonpath={.spec.ports[0].nodePort}')
+```
+
+```bash
+echo $GATEWAY_URL
+
+http://192.168.99.100:30098/
+```
+
+Open in your browser `http://192.168.99.100:30098/productpage`.
+
+
 ## Authors
 
 * **Sergio Rodríguez Calvo** - *Development* - [serrodcal](https://github.com/serrodcal)
