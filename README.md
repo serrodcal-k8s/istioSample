@@ -170,6 +170,7 @@ http://192.168.99.100:30098/
 
 Open in your browser `http://192.168.99.100:30098/productpage`.
 
+![Main page](https://blog.openshift.com/wp-content/uploads/istio_productpage.png)
 
 ## Authors
 
